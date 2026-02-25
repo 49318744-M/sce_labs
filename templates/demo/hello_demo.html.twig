@@ -2,6 +2,6 @@
 {% block body %}
     <h1>Llistat de cotxes</h1>
     {% for car in cars %}
-        <p style="color: red">{{ car.name }}</p>
+        <p class="car-name">{{ car.name }}</p>
     {% endfor %}
 {% endblock %}
