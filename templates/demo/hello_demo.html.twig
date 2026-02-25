@@ -1,12 +1,7 @@
-<h1>Llistat de cotxes</h1>
-
-<ul>
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>Llistat de cotxes</h1>
     {% for car in cars %}
-        <li>
-            {# Afegim el ID i el nom dins de la llista #}
-            <strong>ID {{ car.id }}:</strong> {{ car.name }}
-        </li>
-    {% else %}
-        <li>No hi ha cotxes a la base de dades.</li>
+        <p style="color: red">{{ car.name }}</p>
     {% endfor %}
-</ul>
+{% endblock %}
