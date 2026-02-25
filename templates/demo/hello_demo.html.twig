@@ -1,0 +1,32 @@
+<h1>Llistat de Marques i els seus Cotxes</h1>
+
+<table border="1" style="border-collapse: collapse; width: 100%;">
+    <thead>
+    <tr style="background-color: #f2f2f2;">
+        <th>ID Marca</th>
+        <th>Nom de la Marca</th>
+        <th>Cotxes Associats</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for brand in brands %}
+        <tr>
+            <td>{{ brand.id }}</td>
+            <td><strong>{{ brand.name }}</strong></td>
+            <td>
+                <ul>
+                    {% for car in brand.cars %}
+                        <li>{{ car.name }} (ID Coche: {{ car.id }})</li>
+                    {% else %}
+                        <li><em>No hi ha cotxes para esta marca</em></li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="3">No s'han trobat dades a la taula 'brands'.</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
