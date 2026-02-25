@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $("#important").hover(
+    $(".important").hover(
         function () {
             $(this).css("text-decoration", "underline");
         },
