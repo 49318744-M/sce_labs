@@ -1,13 +1,8 @@
 {% extends 'base.html.twig' %}
 {% block body %}
     <h1>Llistat de cotxes</h1>
-    <ul>
-        {% for car in cars %}
-            {# Accedim a la propietat 'name' de l'entitat 'brand' vinculada al cotxe #}
-            <li class="car-name {% if car.brand and car.brand.name == 'Toyota' %}car-special{% endif %}">
-                {{ car.name }}
-                (Marca: {{ car.brand ? car.brand.name : 'Sense marca' }})
-            </li>
-        {% endfor %}
-    </ul>
+    {% for car in cars %}
+        <p class="car-name" {% if car.name == "Toyota"
+        %}id="important"{% endif %}>{{ car.name }}</p>
+    {% endfor %}
 {% endblock %}
