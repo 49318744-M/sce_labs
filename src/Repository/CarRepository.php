@@ -15,4 +15,18 @@ class CarRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Car::class);
     }
+    public function findCarsWithIdGreater(int $value): array
+    {
+        $qb = $this->createQueryBuilder('c');
+        $qb->where($qb->expr()->gt('c.id', ':value'));
+        $qb->setParameter('value', $value);
+        return $qb->getQuery()->getResult();
+    }
+    public function save(Car $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->persist($entity);
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
 }
